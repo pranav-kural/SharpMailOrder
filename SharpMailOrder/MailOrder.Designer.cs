@@ -168,6 +168,7 @@
             // hoursWorkedTextBox
             // 
             this.hoursWorkedTextBox.Location = new System.Drawing.Point(151, 230);
+            this.hoursWorkedTextBox.MaxLength = 3;
             this.hoursWorkedTextBox.Name = "hoursWorkedTextBox";
             this.hoursWorkedTextBox.Size = new System.Drawing.Size(149, 20);
             this.hoursWorkedTextBox.TabIndex = 9;
