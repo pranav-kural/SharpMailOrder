@@ -38,11 +38,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.employeeName = new System.Windows.Forms.TextBox();
-            this.employeeID = new System.Windows.Forms.TextBox();
-            this.hoursWorked = new System.Windows.Forms.TextBox();
-            this.totalSales = new System.Windows.Forms.TextBox();
-            this.salesBonus = new System.Windows.Forms.TextBox();
+            this.employeeNameTextBox = new System.Windows.Forms.TextBox();
+            this.employeeIDTextBox = new System.Windows.Forms.TextBox();
+            this.hoursWorkedTextBox = new System.Windows.Forms.TextBox();
+            this.totalSalesTextBox = new System.Windows.Forms.TextBox();
+            this.salesBonusTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
             this.calculateButton = new System.Windows.Forms.Button();
@@ -106,7 +106,6 @@
             this.label1.Size = new System.Drawing.Size(133, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Employee\'s Name:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -117,7 +116,6 @@
             this.label2.Size = new System.Drawing.Size(107, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Employee\'s ID:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -128,7 +126,6 @@
             this.label3.Size = new System.Drawing.Size(110, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Hours Worked:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -139,7 +136,6 @@
             this.label4.Size = new System.Drawing.Size(86, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Total Sales:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -150,48 +146,52 @@
             this.label5.Size = new System.Drawing.Size(108, 18);
             this.label5.TabIndex = 6;
             this.label5.Text = "Sales Bonus:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // employeeName
+            // employeeNameTextBox
             // 
-            this.employeeName.Location = new System.Drawing.Point(151, 164);
-            this.employeeName.Name = "employeeName";
-            this.employeeName.Size = new System.Drawing.Size(180, 20);
-            this.employeeName.TabIndex = 7;
-            this.employeeName.TextChanged += new System.EventHandler(this.employeeName_TextChanged);
+            this.employeeNameTextBox.Location = new System.Drawing.Point(151, 164);
+            this.employeeNameTextBox.Name = "employeeNameTextBox";
+            this.employeeNameTextBox.Size = new System.Drawing.Size(180, 20);
+            this.employeeNameTextBox.TabIndex = 7;
+            this.employeeNameTextBox.Tag = "employeeName";
+            this.employeeNameTextBox.TextChanged += new System.EventHandler(this.MailOrderTextBoxHandler);
             // 
-            // employeeID
+            // employeeIDTextBox
             // 
-            this.employeeID.Location = new System.Drawing.Point(152, 197);
-            this.employeeID.Name = "employeeID";
-            this.employeeID.Size = new System.Drawing.Size(149, 20);
-            this.employeeID.TabIndex = 8;
-            this.employeeID.TextChanged += new System.EventHandler(this.employeeID_TextChanged);
+            this.employeeIDTextBox.Location = new System.Drawing.Point(152, 197);
+            this.employeeIDTextBox.Name = "employeeIDTextBox";
+            this.employeeIDTextBox.Size = new System.Drawing.Size(149, 20);
+            this.employeeIDTextBox.TabIndex = 8;
+            this.employeeIDTextBox.Tag = "employeeID";
+            this.employeeIDTextBox.TextChanged += new System.EventHandler(this.MailOrderTextBoxHandler);
             // 
-            // hoursWorked
+            // hoursWorkedTextBox
             // 
-            this.hoursWorked.Location = new System.Drawing.Point(151, 230);
-            this.hoursWorked.Name = "hoursWorked";
-            this.hoursWorked.Size = new System.Drawing.Size(149, 20);
-            this.hoursWorked.TabIndex = 9;
-            this.hoursWorked.TextChanged += new System.EventHandler(this.hoursWorked_TextChanged);
+            this.hoursWorkedTextBox.Location = new System.Drawing.Point(151, 230);
+            this.hoursWorkedTextBox.Name = "hoursWorkedTextBox";
+            this.hoursWorkedTextBox.Size = new System.Drawing.Size(149, 20);
+            this.hoursWorkedTextBox.TabIndex = 9;
+            this.hoursWorkedTextBox.Tag = "hoursWorked";
+            this.hoursWorkedTextBox.TextChanged += new System.EventHandler(this.MailOrderTextBoxHandler);
             // 
-            // totalSales
+            // totalSalesTextBox
             // 
-            this.totalSales.Location = new System.Drawing.Point(151, 258);
-            this.totalSales.Name = "totalSales";
-            this.totalSales.Size = new System.Drawing.Size(149, 20);
-            this.totalSales.TabIndex = 10;
-            this.totalSales.TextChanged += new System.EventHandler(this.totalSales_TextChanged);
+            this.totalSalesTextBox.Location = new System.Drawing.Point(151, 258);
+            this.totalSalesTextBox.Name = "totalSalesTextBox";
+            this.totalSalesTextBox.Size = new System.Drawing.Size(149, 20);
+            this.totalSalesTextBox.TabIndex = 10;
+            this.totalSalesTextBox.Tag = "totalSales";
+            this.totalSalesTextBox.TextChanged += new System.EventHandler(this.MailOrderTextBoxHandler);
             // 
-            // salesBonus
+            // salesBonusTextBox
             // 
-            this.salesBonus.Location = new System.Drawing.Point(151, 285);
-            this.salesBonus.Name = "salesBonus";
-            this.salesBonus.ReadOnly = true;
-            this.salesBonus.Size = new System.Drawing.Size(149, 20);
-            this.salesBonus.TabIndex = 11;
-            this.salesBonus.TextChanged += new System.EventHandler(this.salesBonus_TextChanged);
+            this.salesBonusTextBox.Location = new System.Drawing.Point(151, 285);
+            this.salesBonusTextBox.Name = "salesBonusTextBox";
+            this.salesBonusTextBox.ReadOnly = true;
+            this.salesBonusTextBox.Size = new System.Drawing.Size(149, 20);
+            this.salesBonusTextBox.TabIndex = 11;
+            this.salesBonusTextBox.Tag = "salesBonus";
+            this.salesBonusTextBox.TextChanged += new System.EventHandler(this.MailOrderTextBoxHandler);
             // 
             // clearButton
             // 
@@ -200,8 +200,10 @@
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(80, 35);
             this.clearButton.TabIndex = 17;
+            this.clearButton.Tag = "clearButton";
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
             // 
             // printButton
             // 
@@ -210,8 +212,10 @@
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(80, 35);
             this.printButton.TabIndex = 16;
+            this.printButton.Tag = "printButton";
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = true;
+            this.printButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
             // 
             // calculateButton
             // 
@@ -220,8 +224,10 @@
             this.calculateButton.Name = "calculateButton";
             this.calculateButton.Size = new System.Drawing.Size(80, 35);
             this.calculateButton.TabIndex = 15;
+            this.calculateButton.Tag = "calculateButton";
             this.calculateButton.Text = "Calculate";
             this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
             // 
             // MailOrder
             // 
@@ -231,11 +237,11 @@
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.calculateButton);
-            this.Controls.Add(this.salesBonus);
-            this.Controls.Add(this.totalSales);
-            this.Controls.Add(this.hoursWorked);
-            this.Controls.Add(this.employeeID);
-            this.Controls.Add(this.employeeName);
+            this.Controls.Add(this.salesBonusTextBox);
+            this.Controls.Add(this.totalSalesTextBox);
+            this.Controls.Add(this.hoursWorkedTextBox);
+            this.Controls.Add(this.employeeIDTextBox);
+            this.Controls.Add(this.employeeNameTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -265,11 +271,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox employeeName;
-        private System.Windows.Forms.TextBox employeeID;
-        private System.Windows.Forms.TextBox hoursWorked;
-        private System.Windows.Forms.TextBox totalSales;
-        private System.Windows.Forms.TextBox salesBonus;
+        private System.Windows.Forms.TextBox employeeNameTextBox;
+        private System.Windows.Forms.TextBox employeeIDTextBox;
+        private System.Windows.Forms.TextBox hoursWorkedTextBox;
+        private System.Windows.Forms.TextBox totalSalesTextBox;
+        private System.Windows.Forms.TextBox salesBonusTextBox;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.Button calculateButton;
