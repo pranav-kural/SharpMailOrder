@@ -57,7 +57,6 @@ namespace SharpMailOrder
                     hoursWorkedTextBox.Text = "";
                     salesBonusTextBox.Text = "";
                     break;
-
             }
         }
 
@@ -151,9 +150,9 @@ namespace SharpMailOrder
                 hoursWorkedLabel.Text = "Heures Travaillées:";
                 totalSalesLabel.Text = "Ventes totales:";
                 salesBonusLabel.Text = "Bonus de vente:";
-                calculateButton.Text = "Calculer";
-                printButton.Text = "Imprimer";
-                clearButton.Text = "Effacer";
+                calculateSalesBonusButton.Text = "Calculer";
+                printFormResultsButton.Text = "Imprimer";
+                clearFormValuesButton.Text = "Effacer";
             }
             else
             {
@@ -163,9 +162,9 @@ namespace SharpMailOrder
                 hoursWorkedLabel.Text = "Hours Worked:";
                 totalSalesLabel.Text = "Total Sales:";
                 salesBonusLabel.Text = "Sales Bonus:";
-                calculateButton.Text = "Calculate";
-                printButton.Text = "Print";
-                clearButton.Text = "Clear";
+                calculateSalesBonusButton.Text = "Calculate";
+                printFormResultsButton.Text = "Print";
+                clearFormValuesButton.Text = "Clear";
             }
         }
     }

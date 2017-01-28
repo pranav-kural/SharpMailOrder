@@ -43,9 +43,9 @@
             this.hoursWorkedTextBox = new System.Windows.Forms.TextBox();
             this.totalSalesTextBox = new System.Windows.Forms.TextBox();
             this.salesBonusTextBox = new System.Windows.Forms.TextBox();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.printButton = new System.Windows.Forms.Button();
-            this.calculateButton = new System.Windows.Forms.Button();
+            this.clearFormValuesButton = new System.Windows.Forms.Button();
+            this.printFormResultsButton = new System.Windows.Forms.Button();
+            this.calculateSalesBonusButton = new System.Windows.Forms.Button();
             this.languageSelectorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -203,50 +203,50 @@
             this.salesBonusTextBox.Tag = "salesBonus";
             this.salesBonusTextBox.TextChanged += new System.EventHandler(this.MailOrderTextBoxHandler);
             // 
-            // clearButton
+            // clearFormValuesButton
             // 
-            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.clearButton.Location = new System.Drawing.Point(251, 320);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(80, 35);
-            this.clearButton.TabIndex = 17;
-            this.clearButton.Tag = "clearButton";
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
+            this.clearFormValuesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.clearFormValuesButton.Location = new System.Drawing.Point(251, 320);
+            this.clearFormValuesButton.Name = "clearFormValuesButton";
+            this.clearFormValuesButton.Size = new System.Drawing.Size(80, 35);
+            this.clearFormValuesButton.TabIndex = 17;
+            this.clearFormValuesButton.Tag = "clearButton";
+            this.clearFormValuesButton.Text = "Clear";
+            this.clearFormValuesButton.UseVisualStyleBackColor = true;
+            this.clearFormValuesButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
             // 
-            // printButton
+            // printFormResultsButton
             // 
-            this.printButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.printButton.Location = new System.Drawing.Point(135, 320);
-            this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(80, 35);
-            this.printButton.TabIndex = 16;
-            this.printButton.Tag = "printButton";
-            this.printButton.Text = "Print";
-            this.printButton.UseVisualStyleBackColor = true;
-            this.printButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
+            this.printFormResultsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.printFormResultsButton.Location = new System.Drawing.Point(135, 320);
+            this.printFormResultsButton.Name = "printFormResultsButton";
+            this.printFormResultsButton.Size = new System.Drawing.Size(80, 35);
+            this.printFormResultsButton.TabIndex = 16;
+            this.printFormResultsButton.Tag = "printButton";
+            this.printFormResultsButton.Text = "Print";
+            this.printFormResultsButton.UseVisualStyleBackColor = true;
+            this.printFormResultsButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
             // 
-            // calculateButton
+            // calculateSalesBonusButton
             // 
-            this.calculateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.calculateButton.Location = new System.Drawing.Point(15, 320);
-            this.calculateButton.Name = "calculateButton";
-            this.calculateButton.Size = new System.Drawing.Size(80, 35);
-            this.calculateButton.TabIndex = 15;
-            this.calculateButton.Tag = "calculateButton";
-            this.calculateButton.Text = "Calculate";
-            this.calculateButton.UseVisualStyleBackColor = true;
-            this.calculateButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
+            this.calculateSalesBonusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.calculateSalesBonusButton.Location = new System.Drawing.Point(15, 320);
+            this.calculateSalesBonusButton.Name = "calculateSalesBonusButton";
+            this.calculateSalesBonusButton.Size = new System.Drawing.Size(80, 35);
+            this.calculateSalesBonusButton.TabIndex = 15;
+            this.calculateSalesBonusButton.Tag = "calculateButton";
+            this.calculateSalesBonusButton.Text = "Calculate";
+            this.calculateSalesBonusButton.UseVisualStyleBackColor = true;
+            this.calculateSalesBonusButton.Click += new System.EventHandler(this.MailOrderButtonClickHandler);
             // 
             // MailOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 367);
-            this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.printButton);
-            this.Controls.Add(this.calculateButton);
+            this.Controls.Add(this.clearFormValuesButton);
+            this.Controls.Add(this.printFormResultsButton);
+            this.Controls.Add(this.calculateSalesBonusButton);
             this.Controls.Add(this.salesBonusTextBox);
             this.Controls.Add(this.totalSalesTextBox);
             this.Controls.Add(this.hoursWorkedTextBox);
@@ -286,9 +286,9 @@
         private System.Windows.Forms.TextBox hoursWorkedTextBox;
         private System.Windows.Forms.TextBox totalSalesTextBox;
         private System.Windows.Forms.TextBox salesBonusTextBox;
-        private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button printButton;
-        private System.Windows.Forms.Button calculateButton;
+        private System.Windows.Forms.Button clearFormValuesButton;
+        private System.Windows.Forms.Button printFormResultsButton;
+        private System.Windows.Forms.Button calculateSalesBonusButton;
     }
 }
 
