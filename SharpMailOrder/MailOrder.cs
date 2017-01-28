@@ -54,7 +54,7 @@ namespace SharpMailOrder
                 case "hoursWorked":
                     if (System.Text.RegularExpressions.Regex.IsMatch(hoursWorkedTextBox.Text, "[^0-9]"))
                     {
-                        //DisplayError("Please enter only numbers.", "Invalid Input");
+                        DisplayError("Please enter only numbers.", "Invalid Input");
                         // remove the invalid input
                         hoursWorkedTextBox.Text = hoursWorkedTextBox.Text.Remove(hoursWorkedTextBox.Text.Length - 1);
                         // set the caret to the end of textbox
@@ -64,7 +64,7 @@ namespace SharpMailOrder
                     {
                         if ((Int16.Parse(hoursWorkedTextBox.Text.ToString())) > 160)
                         {
-                            //DisplayError("Total hours worked cannot be greater than 160 hours.", "Inavild Input");
+                            DisplayError("Total hours worked cannot be greater than 160 hours.", "Inavild Input");
                             // remove the last input
                             hoursWorkedTextBox.Text = hoursWorkedTextBox.Text.Remove(hoursWorkedTextBox.Text.Length - 1);
                             // set the caret to the end of textbox
@@ -106,7 +106,14 @@ namespace SharpMailOrder
 
         }
 
-        
-
+        /// <summary>
+        /// Method to handle displaying of the errors using MessageBox
+        /// </summary>
+        /// <param name="message">Despcriptive error message</param>
+        /// <param name="title">Title for the MessageBox displaying error</param>
+        private void DisplayError(string message, string title)
+        {
+            MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
