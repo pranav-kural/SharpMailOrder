@@ -84,11 +84,11 @@ namespace SharpMailOrder
                     
                 case "hoursWorked":
 
-                    // check is the hoursWorked field contains only numbers, using RegEx
+                    // check is the hoursWorked field contains only numbers
                     int hoursWorked = 0;
                     if (!Int32.TryParse(hoursWorkedTextBox.Text.ToString(), out hoursWorked) && (hoursWorkedTextBox.Text.Length != 0))
                     {
-                        DisplayError("Please enter only numbers.", "Invalid Input");
+                        DisplayError("Please enter numbers only.", "Invalid Hours Worked");
                         // remove the invalid input
                         hoursWorkedTextBox.Text = hoursWorkedTextBox.Text.Remove(hoursWorkedTextBox.Text.Length - 1);
                         // set the caret to the end of textbox
@@ -110,10 +110,16 @@ namespace SharpMailOrder
 
                 case "totalSales":
 
-
-
-                    break;
-                default:
+                    // check is the total sales field contains only numbers (or decimal numbers)
+                    double totalSales = 0;
+                    if (!Double.TryParse(totalSalesTextBox.Text.ToString(), out totalSales) && (totalSalesTextBox.Text.Length != 0))
+                    {
+                        DisplayError("Please enter numbers only.", "Invalid Total Sales");
+                        // remove the invalid input
+                        totalSalesTextBox.Text = totalSalesTextBox.Text.Remove(totalSalesTextBox.Text.Length - 1);
+                        // set the caret to the end of textbox
+                        totalSalesTextBox.SelectionStart = totalSalesTextBox.Text.Length;
+                    }
                     break;
             }
 
