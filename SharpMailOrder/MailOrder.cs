@@ -70,7 +70,18 @@ namespace SharpMailOrder
             switch (MailOrderTextBox.Tag.ToString())
             {
                 case "employeeName":
+
+                    // check is the Employee's Name field contains only Letters and certain other characters, using RegEx
+                    if (!System.Text.RegularExpressions.Regex.IsMatch(employeeNameTextBox.Text, @"^[\p{L} \.'\-]+$"))
+                    {
+                        DisplayError("Invalid character added for the name field. Please enter a valid name.", "Invalid Name");
+                        // remove the invalid character added
+                        employeeNameTextBox.Text = employeeNameTextBox.Text.Remove(employeeNameTextBox.Text.Length - 1);
+                        // set the caret to the end of textbox
+                        employeeNameTextBox.SelectionStart = employeeNameTextBox.Text.Length;
+                    }
                     break;
+
                 case "employeeID":
                     break;
                 case "hoursWorked":
