@@ -26,6 +26,7 @@ namespace SharpMailOrder
             {
                 case "calculateButton":
                     salesBonusTextBox.Text = CalculateSalesBonus().ToString();
+                    MessageBox.Show("dfsdfs00");
                     break;
                 case "clearButton":
                     // clear all the text boxes
@@ -42,6 +43,29 @@ namespace SharpMailOrder
 
         public void MailOrderTextBoxHandler(object sender, EventArgs e)
         {
+            TextBox MailOrderTextBox = sender as TextBox;
+
+            switch (MailOrderTextBox.Tag.ToString())
+            {
+                case "employeeName":
+                    break;
+                case "employeeID":
+                    break;
+                case "hoursWorked":
+                    if (System.Text.RegularExpressions.Regex.IsMatch(hoursWorkedTextBox.Text, "[^0-9]"))
+                    {
+                        //DisplayError("Please enter only numbers.", "Invalid Input");
+                        // remove the invalid input
+                        hoursWorkedTextBox.Text = hoursWorkedTextBox.Text.Remove(hoursWorkedTextBox.Text.Length - 1);
+                        // set the caret to the end of textbox
+                        hoursWorkedTextBox.SelectionStart = hoursWorkedTextBox.Text.Length;
+                    }
+                    break;
+                case "totalSales":
+                    break;
+                default:
+                    break;
+            }
 
         }
         
@@ -70,6 +94,8 @@ namespace SharpMailOrder
             }
 
         }
+
+        
 
     }
 }
