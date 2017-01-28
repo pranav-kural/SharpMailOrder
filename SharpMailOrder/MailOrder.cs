@@ -60,6 +60,17 @@ namespace SharpMailOrder
                         // set the caret to the end of textbox
                         hoursWorkedTextBox.SelectionStart = hoursWorkedTextBox.Text.Length;
                     }
+                    else
+                    {
+                        if ((Int16.Parse(hoursWorkedTextBox.Text.ToString())) > 160)
+                        {
+                            //DisplayError("Total hours worked cannot be greater than 160 hours.", "Inavild Input");
+                            // remove the last input
+                            hoursWorkedTextBox.Text = hoursWorkedTextBox.Text.Remove(hoursWorkedTextBox.Text.Length - 1);
+                            // set the caret to the end of textbox
+                            hoursWorkedTextBox.SelectionStart = hoursWorkedTextBox.Text.Length;
+                        }
+                    }
                     break;
                 case "totalSales":
                     break;
