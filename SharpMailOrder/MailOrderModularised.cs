@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+/*
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,11 @@ using System.Windows.Forms;
 
 namespace SharpMailOrder
 {
-    public partial class MailOrder : Form
+    public partial class MailOrderModularised : Form
     {
-        public MailOrder()
+        public MailOrderModularised()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace SharpMailOrder
 
             switch (MailOrderButton.Tag.ToString())
             {
-                case "calculateButton": salesBonusTextBox.Text = CalculateSalesBonus().ToString();
+                case "calculateButton": salesBonusTextBox.Text = CalculateSalesBonus().ToString("C", System.Globalization.CultureInfo.CurrentCulture);
                     break;
                 case "clearButton": ClearAllTextBoxes();
                     break;
@@ -125,3 +127,4 @@ namespace SharpMailOrder
         }
     }
 }
+*/

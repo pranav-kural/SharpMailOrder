@@ -35,7 +35,7 @@ namespace SharpMailOrder
                         totalSales = Double.Parse(totalSalesTextBox.Text);
 
                         // calculating the sales bonus
-                        salesBonusTextBox.Text = (((double)totalHoursWorked / 160) * (totalSales * 0.02)).ToString();
+                        salesBonusTextBox.Text = (((double)totalHoursWorked / 160) * (totalSales * 0.02)).ToString("C", System.Globalization.CultureInfo.CurrentCulture);
                     }
                     else
                     {
@@ -105,12 +105,6 @@ namespace SharpMailOrder
         
         private void Form1_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private double CalculateSalesBonus()
-        {
-            
 
         }
 
