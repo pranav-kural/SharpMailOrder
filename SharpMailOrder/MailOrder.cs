@@ -44,7 +44,13 @@ namespace SharpMailOrder
                     }
                     break;
 
+                case "printButton":
+
+                    MessageBox.Show("Click Okay to print the result.");
+                    break;
+
                 case "clearButton":
+
                     // clear all the text boxes
                     employeeNameTextBox.Text = "";
                     employeeIDTextBox.Text = "";
@@ -52,6 +58,7 @@ namespace SharpMailOrder
                     totalSalesTextBox.Text = "";
                     salesBonusTextBox.Text = "";
                     break;
+
             }
 
             salesBonusTextBox.Text += employeeNameTextBox.Text;
