@@ -39,7 +39,7 @@ namespace SharpMailOrder
                     }
                     else
                     {
-                        MessageBox.Show("Error: Invalid value for the total hours worked  or total sales field");
+                        DisplayError("Invalid value for the total hours worked or total sales field", "Invalid Operation");
                         salesBonusTextBox.Text = "0";
                     }
                     break;
@@ -60,14 +60,14 @@ namespace SharpMailOrder
                     break;
 
             }
-
-            salesBonusTextBox.Text += employeeNameTextBox.Text;
         }
 
         public void MailOrderTextBoxHandler(object sender, EventArgs e)
         {
+            // casting the object received to a TextBox
             TextBox MailOrderTextBox = sender as TextBox;
 
+            // switch statement to see which TextBox has been selected using the Tag property
             switch (MailOrderTextBox.Tag.ToString())
             {
                 case "employeeName":
@@ -75,6 +75,8 @@ namespace SharpMailOrder
                 case "employeeID":
                     break;
                 case "hoursWorked":
+
+                    // check is the hoursWorked field contains only numbers, using RegEx
                     if (System.Text.RegularExpressions.Regex.IsMatch(hoursWorkedTextBox.Text, "[^0-9]"))
                     {
                         DisplayError("Please enter only numbers.", "Invalid Input");
@@ -85,6 +87,7 @@ namespace SharpMailOrder
                     }
                     else
                     {
+                        // to check if current value of hours worked field has exceeded the limit of 160
                         if ((Int16.Parse(hoursWorkedTextBox.Text.ToString())) > 160)
                         {
                             DisplayError("Total hours worked cannot be greater than 160 hours.", "Inavild Input");
@@ -95,16 +98,12 @@ namespace SharpMailOrder
                         }
                     }
                     break;
+
                 case "totalSales":
                     break;
                 default:
                     break;
             }
-
-        }
-        
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -116,6 +115,40 @@ namespace SharpMailOrder
         private void DisplayError(string message, string title)
         {
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        /// <summary>
+        /// Method to switch the form langauge based on radio button selection
+        /// </summary>
+        /// <param name="sender">Radio button object</param>
+        /// <param name="e">Event arguments</param>
+        private void switchLanguage(object sender, EventArgs e)
+        {
+            // if french language is selected
+            if (FrenchlanguageRadioButton.Checked == true)
+            {
+                languageSelectorGroupBox.Text = "Langue";
+                employeeNameLabel.Text = "Employé Nom:";
+                employeeIDLabel.Text = "Employé ID:";
+                hoursWorkedLabel.Text = "Heures Travaillées:";
+                totalSalesLabel.Text = "Ventes totales:";
+                salesBonusLabel.Text = "Bonus de vente:";
+                calculateButton.Text = "Calculer";
+                printButton.Text = "Imprimer";
+                clearButton.Text = "Effacer";
+            }
+            else
+            {
+                languageSelectorGroupBox.Text = "Language";
+                employeeNameLabel.Text = "Employee Name:";
+                employeeIDLabel.Text = "Employee ID:";
+                hoursWorkedLabel.Text = "Hours Worked:";
+                totalSalesLabel.Text = "Total Sales:";
+                salesBonusLabel.Text = "Sales Bonus:";
+                calculateButton.Text = "Calculate";
+                printButton.Text = "Print";
+                clearButton.Text = "Clear";
+            }
         }
     }
 }

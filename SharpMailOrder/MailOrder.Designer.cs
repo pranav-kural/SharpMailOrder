@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MailOrder));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Français = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.languageSelectorGroupBox = new System.Windows.Forms.GroupBox();
+            this.FrenchlanguageRadioButton = new System.Windows.Forms.RadioButton();
+            this.EnglishLanguageRadioButton = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.employeeNameLabel = new System.Windows.Forms.Label();
+            this.employeeIDLabel = new System.Windows.Forms.Label();
+            this.hoursWorkedLabel = new System.Windows.Forms.Label();
+            this.totalSalesLabel = new System.Windows.Forms.Label();
+            this.salesBonusLabel = new System.Windows.Forms.Label();
             this.employeeNameTextBox = new System.Windows.Forms.TextBox();
             this.employeeIDTextBox = new System.Windows.Forms.TextBox();
             this.hoursWorkedTextBox = new System.Windows.Forms.TextBox();
@@ -46,45 +46,49 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
             this.calculateButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.languageSelectorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // languageSelectorGroupBox
             // 
-            this.groupBox1.Controls.Add(this.Français);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.groupBox1.Location = new System.Drawing.Point(181, 32);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(150, 89);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Languages";
+            this.languageSelectorGroupBox.Controls.Add(this.FrenchlanguageRadioButton);
+            this.languageSelectorGroupBox.Controls.Add(this.EnglishLanguageRadioButton);
+            this.languageSelectorGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.languageSelectorGroupBox.Location = new System.Drawing.Point(181, 32);
+            this.languageSelectorGroupBox.Name = "languageSelectorGroupBox";
+            this.languageSelectorGroupBox.Size = new System.Drawing.Size(150, 89);
+            this.languageSelectorGroupBox.TabIndex = 0;
+            this.languageSelectorGroupBox.TabStop = false;
+            this.languageSelectorGroupBox.Text = "Languages";
             // 
-            // Français
+            // FrenchlanguageRadioButton
             // 
-            this.Français.AutoSize = true;
-            this.Français.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.Français.Location = new System.Drawing.Point(16, 53);
-            this.Français.Name = "Français";
-            this.Français.Size = new System.Drawing.Size(83, 22);
-            this.Français.TabIndex = 1;
-            this.Français.Text = "Français";
-            this.Français.UseVisualStyleBackColor = true;
+            this.FrenchlanguageRadioButton.AutoSize = true;
+            this.FrenchlanguageRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.FrenchlanguageRadioButton.Location = new System.Drawing.Point(16, 53);
+            this.FrenchlanguageRadioButton.Name = "FrenchlanguageRadioButton";
+            this.FrenchlanguageRadioButton.Size = new System.Drawing.Size(83, 22);
+            this.FrenchlanguageRadioButton.TabIndex = 1;
+            this.FrenchlanguageRadioButton.Text = "Français";
+            this.FrenchlanguageRadioButton.UseVisualStyleBackColor = true;
+            this.FrenchlanguageRadioButton.CheckedChanged += new System.EventHandler(this.switchLanguage);
+            this.FrenchlanguageRadioButton.Click += new System.EventHandler(this.switchLanguage);
             // 
-            // radioButton1
+            // EnglishLanguageRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.radioButton1.Location = new System.Drawing.Point(16, 29);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(74, 22);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "English";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.EnglishLanguageRadioButton.AutoSize = true;
+            this.EnglishLanguageRadioButton.Checked = true;
+            this.EnglishLanguageRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.EnglishLanguageRadioButton.Location = new System.Drawing.Point(16, 29);
+            this.EnglishLanguageRadioButton.Name = "EnglishLanguageRadioButton";
+            this.EnglishLanguageRadioButton.Size = new System.Drawing.Size(74, 22);
+            this.EnglishLanguageRadioButton.TabIndex = 0;
+            this.EnglishLanguageRadioButton.TabStop = true;
+            this.EnglishLanguageRadioButton.Text = "English";
+            this.EnglishLanguageRadioButton.UseVisualStyleBackColor = true;
+            this.EnglishLanguageRadioButton.CheckedChanged += new System.EventHandler(this.switchLanguage);
+            this.EnglishLanguageRadioButton.Click += new System.EventHandler(this.switchLanguage);
             // 
             // pictureBox1
             // 
@@ -97,55 +101,60 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // employeeNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.label1.Location = new System.Drawing.Point(12, 164);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Employee\'s Name:";
+            this.employeeNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.employeeNameLabel.Location = new System.Drawing.Point(12, 164);
+            this.employeeNameLabel.Name = "employeeNameLabel";
+            this.employeeNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.employeeNameLabel.Size = new System.Drawing.Size(133, 18);
+            this.employeeNameLabel.TabIndex = 2;
+            this.employeeNameLabel.Text = "Employee\'s Name:";
+            this.employeeNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label2
+            // employeeIDLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.label2.Location = new System.Drawing.Point(38, 199);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Employee\'s ID:";
+            this.employeeIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.employeeIDLabel.Location = new System.Drawing.Point(12, 199);
+            this.employeeIDLabel.Name = "employeeIDLabel";
+            this.employeeIDLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.employeeIDLabel.Size = new System.Drawing.Size(134, 18);
+            this.employeeIDLabel.TabIndex = 3;
+            this.employeeIDLabel.Text = "Employee\'s ID:";
+            this.employeeIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // hoursWorkedLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.label3.Location = new System.Drawing.Point(35, 230);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Hours Worked:";
+            this.hoursWorkedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.hoursWorkedLabel.Location = new System.Drawing.Point(12, 230);
+            this.hoursWorkedLabel.Name = "hoursWorkedLabel";
+            this.hoursWorkedLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.hoursWorkedLabel.Size = new System.Drawing.Size(133, 18);
+            this.hoursWorkedLabel.TabIndex = 4;
+            this.hoursWorkedLabel.Text = "Hours Worked:";
+            this.hoursWorkedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // totalSalesLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.label4.Location = new System.Drawing.Point(59, 258);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Total Sales:";
+            this.totalSalesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.totalSalesLabel.Location = new System.Drawing.Point(12, 258);
+            this.totalSalesLabel.Name = "totalSalesLabel";
+            this.totalSalesLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.totalSalesLabel.Size = new System.Drawing.Size(133, 18);
+            this.totalSalesLabel.TabIndex = 5;
+            this.totalSalesLabel.Text = "Total Sales:";
+            this.totalSalesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // salesBonusLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(37, 284);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 18);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Sales Bonus:";
+            this.salesBonusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesBonusLabel.Location = new System.Drawing.Point(12, 284);
+            this.salesBonusLabel.Name = "salesBonusLabel";
+            this.salesBonusLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.salesBonusLabel.Size = new System.Drawing.Size(133, 18);
+            this.salesBonusLabel.TabIndex = 6;
+            this.salesBonusLabel.Text = "Sales Bonus:";
+            this.salesBonusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // employeeNameTextBox
             // 
@@ -243,18 +252,18 @@
             this.Controls.Add(this.hoursWorkedTextBox);
             this.Controls.Add(this.employeeIDTextBox);
             this.Controls.Add(this.employeeNameTextBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.salesBonusLabel);
+            this.Controls.Add(this.totalSalesLabel);
+            this.Controls.Add(this.hoursWorkedLabel);
+            this.Controls.Add(this.employeeIDLabel);
+            this.Controls.Add(this.employeeNameLabel);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.languageSelectorGroupBox);
             this.Name = "MailOrder";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.languageSelectorGroupBox.ResumeLayout(false);
+            this.languageSelectorGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -263,15 +272,15 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton Français;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox languageSelectorGroupBox;
+        private System.Windows.Forms.RadioButton FrenchlanguageRadioButton;
+        private System.Windows.Forms.RadioButton EnglishLanguageRadioButton;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label employeeNameLabel;
+        private System.Windows.Forms.Label employeeIDLabel;
+        private System.Windows.Forms.Label hoursWorkedLabel;
+        private System.Windows.Forms.Label totalSalesLabel;
+        private System.Windows.Forms.Label salesBonusLabel;
         private System.Windows.Forms.TextBox employeeNameTextBox;
         private System.Windows.Forms.TextBox employeeIDTextBox;
         private System.Windows.Forms.TextBox hoursWorkedTextBox;
