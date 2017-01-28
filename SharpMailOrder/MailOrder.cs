@@ -46,7 +46,7 @@ namespace SharpMailOrder
 
                 case "printButton":
 
-                    MessageBox.Show("Click Okay to print the result.");
+                    MessageBox.Show("Form results being transferred to the printer.");
                     break;
 
                 case "clearButton":
@@ -55,7 +55,6 @@ namespace SharpMailOrder
                     employeeNameTextBox.Text = "";
                     employeeIDTextBox.Text = "";
                     hoursWorkedTextBox.Text = "";
-                    totalSalesTextBox.Text = "";
                     salesBonusTextBox.Text = "";
                     break;
 
