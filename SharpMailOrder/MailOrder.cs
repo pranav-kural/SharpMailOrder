@@ -25,9 +25,25 @@ namespace SharpMailOrder
             switch (MailOrderButton.Tag.ToString())
             {
                 case "calculateButton":
-                    salesBonusTextBox.Text = CalculateSalesBonus().ToString();
-                    MessageBox.Show("dfsdfs00");
+
+                    // parsing the values of total hours worked and total sales
+                    int totalHoursWorked = 0;
+                    double totalSales = 0;
+                    if (Int32.TryParse(hoursWorkedTextBox.Text, out totalHoursWorked) && Double.TryParse(totalSalesTextBox.Text, out totalSales))
+                    {
+                        totalHoursWorked = Int32.Parse(hoursWorkedTextBox.Text);
+                        totalSales = Double.Parse(totalSalesTextBox.Text);
+
+                        // calculating the sales bonus
+                        salesBonusTextBox.Text = (((double)totalHoursWorked / 160) * (totalSales * 0.02)).ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Invalid value for the total hours worked  or total sales field");
+                        salesBonusTextBox.Text = "0";
+                    }
                     break;
+
                 case "clearButton":
                     // clear all the text boxes
                     employeeNameTextBox.Text = "";
@@ -87,22 +103,7 @@ namespace SharpMailOrder
 
         private double CalculateSalesBonus()
         {
-            // parsing the values of total hours worked and total sales
-            int totalHoursWorked = 0;
-            double totalSales = 0;
-            if (Int32.TryParse(hoursWorkedTextBox.Text, out totalHoursWorked) && Double.TryParse(totalSalesTextBox.Text, out totalSales))
-            {
-                totalHoursWorked = Int32.Parse(hoursWorkedTextBox.Text);
-                totalSales = Double.Parse(totalSalesTextBox.Text);
-
-                // calculating the sales bonus
-                return (((double)totalHoursWorked / 160) * (totalSales * 0.02));
-            }
-            else
-            {
-                MessageBox.Show("Error: Invalid value for the total hours worked  or total sales field");
-                return 0;
-            }
+            
 
         }
 
