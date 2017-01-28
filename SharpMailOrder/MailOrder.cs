@@ -81,13 +81,12 @@ namespace SharpMailOrder
                         employeeNameTextBox.SelectionStart = employeeNameTextBox.Text.Length;
                     }
                     break;
-
-                case "employeeID":
-                    break;
+                    
                 case "hoursWorked":
 
                     // check is the hoursWorked field contains only numbers, using RegEx
-                    if (System.Text.RegularExpressions.Regex.IsMatch(hoursWorkedTextBox.Text, "[^0-9]"))
+                    int hoursWorked = 0;
+                    if (!Int32.TryParse(hoursWorkedTextBox.Text.ToString(), out hoursWorked) && (hoursWorkedTextBox.Text.Length != 0))
                     {
                         DisplayError("Please enter only numbers.", "Invalid Input");
                         // remove the invalid input
@@ -98,7 +97,7 @@ namespace SharpMailOrder
                     else
                     {
                         // to check if current value of hours worked field has exceeded the limit of 160
-                        if ((Int16.Parse(hoursWorkedTextBox.Text.ToString())) > 160)
+                        if (hoursWorked > 160)
                         {
                             DisplayError("Total hours worked cannot be greater than 160 hours.", "Inavild Input");
                             // remove the last input
@@ -110,6 +109,9 @@ namespace SharpMailOrder
                     break;
 
                 case "totalSales":
+
+
+
                     break;
                 default:
                     break;
