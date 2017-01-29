@@ -45,7 +45,7 @@ namespace SharpMailOrder
         /// <summary>
         /// True - If the form language is set to English
         /// </summary>
-        private bool isLanguageEnglish;
+        private bool _isLanguageEnglish;
 
         /// <summary>
         /// MailOrder Constructor to call the MailOrder InitializeComponent method to setup the form application
@@ -53,7 +53,7 @@ namespace SharpMailOrder
         public MailOrder()
         {
             InitializeComponent();
-            isLanguageEnglish = true; // language is English by default
+            _isLanguageEnglish = true; // language is English by default
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace SharpMailOrder
                     }
                     else
                     {
-                        DisplayError((isLanguageEnglish) ? "Invalid value for the total hours worked or total sales field" : "Valeur non valide pour le nombre total d'heures travaillées ou le nombre total de ventes", (isLanguageEnglish) ? "Invalid Operation" : "Opération invalide");
+                        DisplayError((_isLanguageEnglish) ? "Invalid value for the total hours worked or total sales field" : "Valeur non valide pour le nombre total d'heures travaillées ou le nombre total de ventes", (_isLanguageEnglish) ? "Invalid Operation" : "Opération invalide");
                         salesBonusTextBox.Text = ""; // clear the value of text box
                     }
                     break;
@@ -93,7 +93,7 @@ namespace SharpMailOrder
                 case "printButton":
 
                     // Fake message representing the data being transferred to the printer
-                    MessageBox.Show((isLanguageEnglish) ? "Form results being transferred to the printer." : "Les résultats du formulaire sont transférés à l'imprimante.");
+                    MessageBox.Show((_isLanguageEnglish) ? "Form results being transferred to the printer." : "Les résultats du formulaire sont transférés à l'imprimante.");
                     break;
 
                 case "clearButton":
@@ -125,7 +125,7 @@ namespace SharpMailOrder
                     // check is the Employee's Name field contains only Letters and certain other characters, using RegEx
                     if (!System.Text.RegularExpressions.Regex.IsMatch(employeeNameTextBox.Text, @"^[\p{L} \.'\-]+$"))
                     {
-                        DisplayError((isLanguageEnglish) ? "Invalid character added for the name field. Please enter a valid name." : "Caractère non valide ajouté pour le champ de nom. Merci d'entrer un nom valide.", (isLanguageEnglish) ? "Invalid Name" : "Nom incorrect");
+                        DisplayError((_isLanguageEnglish) ? "Invalid character added for the name field. Please enter a valid name." : "Caractère non valide ajouté pour le champ de nom. Merci d'entrer un nom valide.", (_isLanguageEnglish) ? "Invalid Name" : "Nom incorrect");
                         // remove the invalid character added
                         employeeNameTextBox.Text = employeeNameTextBox.Text.Remove(employeeNameTextBox.Text.Length - 1);
                         // set the caret to the end of textbox
@@ -139,7 +139,7 @@ namespace SharpMailOrder
                     int hoursWorked = 0;
                     if (!Int32.TryParse(hoursWorkedTextBox.Text.ToString(), out hoursWorked) && (hoursWorkedTextBox.Text.Length != 0))
                     {
-                        DisplayError((isLanguageEnglish) ? "Please enter numbers only." : "Veuillez saisir des chiffres uniquement.", (isLanguageEnglish) ? "Invalid Hours Worked" : "Heures invalides travaillées");
+                        DisplayError((_isLanguageEnglish) ? "Please enter numbers only." : "Veuillez saisir des chiffres uniquement.", (_isLanguageEnglish) ? "Invalid Hours Worked" : "Heures invalides travaillées");
                         // remove the invalid input
                         hoursWorkedTextBox.Text = hoursWorkedTextBox.Text.Remove(hoursWorkedTextBox.Text.Length - 1);
                         // set the caret to the end of textbox
@@ -150,7 +150,7 @@ namespace SharpMailOrder
                         // to check if current value of hours worked field has exceeded the limit of 160
                         if (hoursWorked > 160)
                         {
-                            DisplayError((isLanguageEnglish) ? "Total hours worked cannot be greater than 160 hours." : "Le total des heures travaillées ne peut être supérieur à 160 heures.", (isLanguageEnglish) ? "Invalid Input" : "entrée invalide");
+                            DisplayError((_isLanguageEnglish) ? "Total hours worked cannot be greater than 160 hours." : "Le total des heures travaillées ne peut être supérieur à 160 heures.", (_isLanguageEnglish) ? "Invalid Input" : "entrée invalide");
                             // remove the last input
                             hoursWorkedTextBox.Text = hoursWorkedTextBox.Text.Remove(hoursWorkedTextBox.Text.Length - 1);
                             // set the caret to the end of textbox
@@ -168,7 +168,7 @@ namespace SharpMailOrder
                     string totalSalesValue = ((totalSalesEntered.IndexOf('$') != -1) ? totalSalesEntered.Remove(totalSalesEntered.IndexOf('$'), 1) : totalSalesEntered) + ((totalSalesEntered.IndexOf('.') == (totalSalesEntered.Length - 1)) ? "0" : ""); 
                     if (!Double.TryParse(totalSalesValue, out totalSales) && (totalSalesTextBox.Text.Length != 0))
                     {
-                        DisplayError((isLanguageEnglish) ? "Please enter numbers only." : "Veuillez saisir des chiffres uniquement.", (isLanguageEnglish) ? "Invalid Total Sales" : "Ventes totales non valides");
+                        DisplayError((_isLanguageEnglish) ? "Please enter numbers only." : "Veuillez saisir des chiffres uniquement.", (_isLanguageEnglish) ? "Invalid Total Sales" : "Ventes totales non valides");
                         // remove the invalid input
                         totalSalesTextBox.Text = "$" + string.Format("{0:0.00}", totalSalesTextBox.Text.Remove(totalSalesTextBox.Text.Length - 1));
                         // set the caret to the end of textbox
@@ -214,7 +214,7 @@ namespace SharpMailOrder
                 calculateSalesBonusButton.Text = "Calculer";
                 printFormResultsButton.Text = "Imprimer";
                 clearFormValuesButton.Text = "Effacer";
-                isLanguageEnglish = false; // set the language to French
+                _isLanguageEnglish = false; // set the language to French
             }
             else
             {
@@ -228,7 +228,7 @@ namespace SharpMailOrder
                 calculateSalesBonusButton.Text = "Calculate";
                 printFormResultsButton.Text = "Print";
                 clearFormValuesButton.Text = "Clear";
-                isLanguageEnglish = true; // set the language to English
+                _isLanguageEnglish = true; // set the language to English
             }
         }
         
