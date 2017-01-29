@@ -8,20 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/// <summary>
+/// Project namespace
+/// </summary>
 namespace SharpMailOrder
 {
+    /// <summary>
+    /// MailOrder Class containing a form to calculate sales bonus of employees working in a mail order company
+    /// </summary>
     public partial class MailOrder : Form
     {
+        /// <summary>
+        /// MailOrder Constructor to call the MailOrder InitializeComponent method to setup the form application
+        /// </summary>
         public MailOrder()
         {
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Handle the click on all the form buttons
+        /// </summary>
+        /// <param name="sender">Button object passed as an Object type</param>
+        /// <param name="e">Button click event arguments</param>
         public void MailOrderButtonClickHandler(object sender, EventArgs e)
         {
+            // downcasting the sender object to Button object
             Button MailOrderButton = sender as Button;
 
+            // select the button clicked
             switch (MailOrderButton.Tag.ToString())
             {
                 case "calculateButton":
@@ -29,23 +44,25 @@ namespace SharpMailOrder
                     // parsing the values of total hours worked and total sales
                     int totalHoursWorked = 0;
                     double totalSales = 0;
-                    if (Int32.TryParse(hoursWorkedTextBox.Text, out totalHoursWorked) && Double.TryParse(totalSalesTextBox.Text, out totalSales))
-                    {
-                        totalHoursWorked = Int32.Parse(hoursWorkedTextBox.Text);
-                        totalSales = Double.Parse(totalSalesTextBox.Text);
+                    string totalSalesEntered = totalSalesTextBox.Text.ToString();
+                    string totalSalesValue = ((totalSalesEntered.IndexOf('$') != -1) ? totalSalesEntered.Remove(totalSalesEntered.IndexOf('$'), 1) : totalSalesEntered) + ((totalSalesEntered.IndexOf('.') == (totalSalesEntered.Length - 1)) ? "0" : "");
 
+                    // verify the values entered for hours worked and total sales before proceeding
+                    if (Int32.TryParse(hoursWorkedTextBox.Text, out totalHoursWorked) && Double.TryParse(totalSalesValue, out totalSales))
+                    {
                         // calculating the sales bonus
                         salesBonusTextBox.Text = (((double)totalHoursWorked / 160) * (totalSales * 0.02)).ToString("C", System.Globalization.CultureInfo.CurrentCulture);
                     }
                     else
                     {
                         DisplayError("Invalid value for the total hours worked or total sales field", "Invalid Operation");
-                        salesBonusTextBox.Text = "0";
+                        salesBonusTextBox.Text = ""; // clear the value of text box
                     }
                     break;
 
                 case "printButton":
 
+                    // Fake message representing the data being transferred to the printer
                     MessageBox.Show("Form results being transferred to the printer.");
                     break;
 
@@ -60,6 +77,11 @@ namespace SharpMailOrder
             }
         }
 
+        /// <summary>
+        /// Handle the Click and key press event on the text boxes
+        /// </summary>
+        /// <param name="sender">TextBox object passed as an Object type</param>
+        /// <param name="e">Arguments related to the event</param>
         public void MailOrderTextBoxHandler(object sender, EventArgs e)
         {
             // casting the object received to a TextBox
@@ -111,12 +133,21 @@ namespace SharpMailOrder
 
                     // check is the total sales field contains only numbers (or decimal numbers)
                     double totalSales = 0;
-                    if (!Double.TryParse(totalSalesTextBox.Text.ToString(), out totalSales) && (totalSalesTextBox.Text.Length != 0))
+                    string totalSalesEntered = totalSalesTextBox.Text.ToString(); // unformatted (raw) string of text value of the total sales field
+                    // removing the formatting from the total sales value like '$' character, and adding a '0' if '.' is the last character with nothing after it
+                    string totalSalesValue = ((totalSalesEntered.IndexOf('$') != -1) ? totalSalesEntered.Remove(totalSalesEntered.IndexOf('$'), 1) : totalSalesEntered) + ((totalSalesEntered.IndexOf('.') == (totalSalesEntered.Length - 1)) ? "0" : ""); 
+                    if (!Double.TryParse(totalSalesValue, out totalSales) && (totalSalesTextBox.Text.Length != 0))
                     {
                         DisplayError("Please enter numbers only.", "Invalid Total Sales");
                         // remove the invalid input
-                        totalSalesTextBox.Text = totalSalesTextBox.Text.Remove(totalSalesTextBox.Text.Length - 1);
+                        totalSalesTextBox.Text = "$" + string.Format("{0:0.00}", totalSalesTextBox.Text.Remove(totalSalesTextBox.Text.Length - 1));
                         // set the caret to the end of textbox
+                        totalSalesTextBox.SelectionStart = totalSalesTextBox.Text.Length;
+                    }
+                    else
+                    {
+                        // display total sales in currency format after validation passes
+                        totalSalesTextBox.Text = "$" + string.Format("{0:0.00}", ((totalSalesEntered.IndexOf('.') == (totalSalesEntered.Length - 1)) ? totalSalesValue.Remove(totalSalesValue.Length -1, 1) : totalSalesValue));
                         totalSalesTextBox.SelectionStart = totalSalesTextBox.Text.Length;
                     }
                     break;
@@ -156,6 +187,7 @@ namespace SharpMailOrder
             }
             else
             {
+                // labels for English language
                 languageSelectorGroupBox.Text = "Language";
                 employeeNameLabel.Text = "Employee Name:";
                 employeeIDLabel.Text = "Employee ID:";
