@@ -124,7 +124,7 @@ namespace SharpMailOrder
                 case "employeeName":
 
                     // check is the Employee's Name field contains only Letters and certain other characters, using RegEx
-                    if (!System.Text.RegularExpressions.Regex.IsMatch(employeeNameTextBox.Text, @"^[\p{L} \.'\-]+$"))
+                    if (employeeNameTextBox.Text.Length != 0 && !System.Text.RegularExpressions.Regex.IsMatch(employeeNameTextBox.Text, @"^[\p{L} \.'\-]+$"))
                     {
                         DisplayError((_isLanguageEnglish) ? "Invalid character added for the name field. Please enter a valid name." : "Caractère non valide ajouté pour le champ de nom. Merci d'entrer un nom valide.", (_isLanguageEnglish) ? "Invalid Name" : "Nom incorrect");
                         // remove the invalid character added
@@ -149,7 +149,7 @@ namespace SharpMailOrder
                     else
                     {
                         // to check if current value of hours worked field has exceeded the limit of 160
-                        if (hoursWorked > 160)
+                        if (hoursWorked < 0 || hoursWorked > 160)
                         {
                             DisplayError((_isLanguageEnglish) ? "Total hours worked cannot be greater than 160 hours." : "Le total des heures travaillées ne peut être supérieur à 160 heures.", (_isLanguageEnglish) ? "Invalid Input" : "entrée invalide");
                             // remove the last input
@@ -167,18 +167,18 @@ namespace SharpMailOrder
                     string totalSalesEntered = totalSalesTextBox.Text.ToString(); // unformatted (raw) string of text value of the total sales field
                     // removing the formatting from the total sales value like '$' character, and adding a '0' if '.' is the last character with nothing after it
                     string totalSalesValue = ((totalSalesEntered.IndexOf('$') != -1) ? totalSalesEntered.Remove(totalSalesEntered.IndexOf('$'), 1) : totalSalesEntered) + ((totalSalesEntered.IndexOf('.') == (totalSalesEntered.Length - 1)) ? "0" : ""); 
-                    if (!Double.TryParse(totalSalesValue, out totalSales) && (totalSalesTextBox.Text.Length != 0))
+                    if (!Double.TryParse(totalSalesValue, out totalSales) && (totalSalesValue.Length != 0))
                     {
                         DisplayError((_isLanguageEnglish) ? "Please enter numbers only." : "Veuillez saisir des chiffres uniquement.", (_isLanguageEnglish) ? "Invalid Total Sales" : "Ventes totales non valides");
                         // remove the invalid input
-                        totalSalesTextBox.Text = "$" + string.Format("{0:0.00}", totalSalesTextBox.Text.Remove(totalSalesTextBox.Text.Length - 1));
+                        totalSalesTextBox.Text = "$" + string.Format("{0:0.00}", (totalSalesValue.Length != 0) ? totalSalesValue.Remove(totalSalesValue.Length - 1) : "");
                         // set the caret to the end of textbox
                         totalSalesTextBox.SelectionStart = totalSalesTextBox.Text.Length;
                     }
                     else
                     {
                         // display total sales in currency format after validation passes
-                        totalSalesTextBox.Text = "$" + string.Format("{0:0.00}", ((totalSalesEntered.IndexOf('.') == (totalSalesEntered.Length - 1)) ? totalSalesValue.Remove(totalSalesValue.Length -1, 1) : totalSalesValue));
+                        totalSalesTextBox.Text = "$" + string.Format("{0:0.00}", ((totalSalesValue.Length != 0) ? ((totalSalesValue.IndexOf('.') == (totalSalesValue.Length - 1)) ? totalSalesValue.Remove(totalSalesValue.Length -1, 1) : totalSalesValue) : ""));
                         totalSalesTextBox.SelectionStart = totalSalesTextBox.Text.Length;
                     }
                     break;
@@ -204,7 +204,7 @@ namespace SharpMailOrder
         private void switchLanguage(object sender, EventArgs e)
         {
             // if french language is selected
-            if (FrenchlanguageRadioButton.Checked == true)
+            if (FrenchLanguageRadioButton.Checked == true)
             {
                 languageSelectorGroupBox.Text = "Langue";
                 employeeNameLabel.Text = "Employé Nom:";

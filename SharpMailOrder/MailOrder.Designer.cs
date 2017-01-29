@@ -54,7 +54,7 @@ namespace SharpMailOrder
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MailOrder));
             this.languageSelectorGroupBox = new System.Windows.Forms.GroupBox();
-            this.FrenchlanguageRadioButton = new System.Windows.Forms.RadioButton();
+            this.FrenchLanguageRadioButton = new System.Windows.Forms.RadioButton();
             this.EnglishLanguageRadioButton = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.employeeNameLabel = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@ namespace SharpMailOrder
             // 
             // languageSelectorGroupBox
             // 
-            this.languageSelectorGroupBox.Controls.Add(this.FrenchlanguageRadioButton);
+            this.languageSelectorGroupBox.Controls.Add(this.FrenchLanguageRadioButton);
             this.languageSelectorGroupBox.Controls.Add(this.EnglishLanguageRadioButton);
             this.languageSelectorGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
             this.languageSelectorGroupBox.Location = new System.Drawing.Point(181, 32);
@@ -86,18 +86,18 @@ namespace SharpMailOrder
             this.languageSelectorGroupBox.TabStop = false;
             this.languageSelectorGroupBox.Text = "Languages";
             // 
-            // FrenchlanguageRadioButton
+            // FrenchLanguageRadioButton
             // 
-            this.FrenchlanguageRadioButton.AutoSize = true;
-            this.FrenchlanguageRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
-            this.FrenchlanguageRadioButton.Location = new System.Drawing.Point(16, 53);
-            this.FrenchlanguageRadioButton.Name = "FrenchlanguageRadioButton";
-            this.FrenchlanguageRadioButton.Size = new System.Drawing.Size(83, 22);
-            this.FrenchlanguageRadioButton.TabIndex = 1;
-            this.FrenchlanguageRadioButton.Text = "Français";
-            this.FrenchlanguageRadioButton.UseVisualStyleBackColor = true;
-            this.FrenchlanguageRadioButton.CheckedChanged += new System.EventHandler(this.switchLanguage);
-            this.FrenchlanguageRadioButton.Click += new System.EventHandler(this.switchLanguage);
+            this.FrenchLanguageRadioButton.AutoSize = true;
+            this.FrenchLanguageRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.FrenchLanguageRadioButton.Location = new System.Drawing.Point(16, 53);
+            this.FrenchLanguageRadioButton.Name = "FrenchLanguageRadioButton";
+            this.FrenchLanguageRadioButton.Size = new System.Drawing.Size(83, 22);
+            this.FrenchLanguageRadioButton.TabIndex = 1;
+            this.FrenchLanguageRadioButton.Text = "Français";
+            this.FrenchLanguageRadioButton.UseVisualStyleBackColor = true;
+            this.FrenchLanguageRadioButton.CheckedChanged += new System.EventHandler(this.switchLanguage);
+            this.FrenchLanguageRadioButton.Click += new System.EventHandler(this.switchLanguage);
             // 
             // EnglishLanguageRadioButton
             // 
@@ -297,7 +297,7 @@ namespace SharpMailOrder
         #endregion
 
         private System.Windows.Forms.GroupBox languageSelectorGroupBox;
-        private System.Windows.Forms.RadioButton FrenchlanguageRadioButton;
+        private System.Windows.Forms.RadioButton FrenchLanguageRadioButton;
         private System.Windows.Forms.RadioButton EnglishLanguageRadioButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label employeeNameLabel;
