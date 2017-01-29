@@ -94,7 +94,7 @@ namespace SharpMailOrder
                 case "printButton":
 
                     // Fake message representing the data being transferred to the printer
-                    MessageBox.Show((_isLanguageEnglish) ? "Form results being transferred to the printer." : "Les résultats du formulaire sont transférés à l'imprimante.");
+                    MessageBox.Show((_isLanguageEnglish) ? "Form results being transferred to the printer." : "Les résultats du formulaire sont transférés à l'imprimante.", (_isLanguageEnglish) ? "Printing Form" : "Formulaire d'impression");
                     break;
 
                 case "clearButton":
