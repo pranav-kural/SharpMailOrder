@@ -285,7 +285,7 @@ namespace SharpMailOrder
             this.Controls.Add(this.languageSelectorGroupBox);
             this.Name = "MailOrder";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "Form1";
+            this.Text = "Sales Bonus";
             this.languageSelectorGroupBox.ResumeLayout(false);
             this.languageSelectorGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
