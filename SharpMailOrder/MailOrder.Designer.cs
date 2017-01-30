@@ -96,8 +96,8 @@ namespace SharpMailOrder
             this.FrenchLanguageRadioButton.TabIndex = 1;
             this.FrenchLanguageRadioButton.Text = "Français";
             this.FrenchLanguageRadioButton.UseVisualStyleBackColor = true;
-            this.FrenchLanguageRadioButton.CheckedChanged += new System.EventHandler(this.switchLanguage);
-            this.FrenchLanguageRadioButton.Click += new System.EventHandler(this.switchLanguage);
+            this.FrenchLanguageRadioButton.CheckedChanged += new System.EventHandler(this._switchLanguage);
+            this.FrenchLanguageRadioButton.Click += new System.EventHandler(this._switchLanguage);
             // 
             // EnglishLanguageRadioButton
             // 
@@ -111,8 +111,8 @@ namespace SharpMailOrder
             this.EnglishLanguageRadioButton.TabStop = true;
             this.EnglishLanguageRadioButton.Text = "English";
             this.EnglishLanguageRadioButton.UseVisualStyleBackColor = true;
-            this.EnglishLanguageRadioButton.CheckedChanged += new System.EventHandler(this.switchLanguage);
-            this.EnglishLanguageRadioButton.Click += new System.EventHandler(this.switchLanguage);
+            this.EnglishLanguageRadioButton.CheckedChanged += new System.EventHandler(this._switchLanguage);
+            this.EnglishLanguageRadioButton.Click += new System.EventHandler(this._switchLanguage);
             // 
             // pictureBox1
             // 
@@ -149,13 +149,13 @@ namespace SharpMailOrder
             // 
             // hoursWorkedLabel
             // 
-            this.hoursWorkedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F);
+            this.hoursWorkedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
             this.hoursWorkedLabel.Location = new System.Drawing.Point(12, 230);
             this.hoursWorkedLabel.Name = "hoursWorkedLabel";
             this.hoursWorkedLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.hoursWorkedLabel.Size = new System.Drawing.Size(133, 18);
             this.hoursWorkedLabel.TabIndex = 4;
-            this.hoursWorkedLabel.Text = "Hours Worked:";
+            this.hoursWorkedLabel.Text = "Heures Travaillées:";
             this.hoursWorkedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // totalSalesLabel
